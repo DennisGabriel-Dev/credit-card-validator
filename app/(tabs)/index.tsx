@@ -39,6 +39,7 @@ export default function HomeScreen() {
 
           <Text style={valid ? styles.textValid : styles.textInvalid}>
             {valid ? 'Número de cartão válido' : 'Número de cartão inválido'}
+            {valid && brand && ` - ${brand}`}
           </Text>
 
           <CardDisplay brand={brand} cardNumber={cardNumber} valid={valid} />

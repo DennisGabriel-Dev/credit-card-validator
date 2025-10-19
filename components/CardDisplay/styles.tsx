@@ -12,11 +12,19 @@ const styles = StyleSheet.create({
   },
   textCard: {
     color: '#fff',
-    fontSize: 18
+    fontSize: 18,
+    letterSpacing: 2,
   },
   textCardBrand: {
     color: '#fff',
-    fontSize: 18
+    fontSize: 18,
+  },
+  brandLogoContainer: {
+    alignItems: 'flex-end',
+  },
+  brandLogo: {
+    width: 80,
+    height: 50,
   }
 });
 
