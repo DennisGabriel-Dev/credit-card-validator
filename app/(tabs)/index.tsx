@@ -1,4 +1,6 @@
 import CardDisplay from '@/components/CardDisplay';
+import { CARD_CONFIG } from '@/constants/cardConfig';
+import { COLORS } from '@/constants/colors';
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, ScrollView, StatusBar, Text, View } from 'react-native';
 import { MaskedTextInput } from 'react-native-mask-text';
@@ -20,7 +22,7 @@ export default function HomeScreen() {
     <KeyboardAvoidingView 
       style={styles.container}
     >
-      <StatusBar barStyle="light-content" backgroundColor="#0F172A" />
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.content}>
           <Text style={styles.titleContainer}>
@@ -28,13 +30,16 @@ export default function HomeScreen() {
           </Text>
 
           <MaskedTextInput
-           mask="9999 9999 9999 9999 999"
+           mask={CARD_CONFIG.mask}
            placeholder='Digite o Número do cartão aqui'
-           placeholderTextColor='#6B728f'
+           placeholderTextColor={COLORS.textSecondary}
            value={cardNumber}
            onChangeText={(text) => setCardNumber(text)}
            keyboardType='numeric'
            style={styles.textInput}
+           accessible={true}
+           accessibilityLabel="Campo de número do cartão"
+           accessibilityHint="Digite o número do seu cartão de crédito, entre 13 e 19 dígitos"
            />
 
           <Text style={valid ? styles.textValid : styles.textInvalid}>

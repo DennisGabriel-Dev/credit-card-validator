@@ -8,6 +8,11 @@ function validateCardNumber(number: string): boolean {
     return false;
   }
 
+  // Valida tamanho mínimo e máximo (cartões válidos têm entre 13 e 19 dígitos)
+  if (sanitized.length < 13 || sanitized.length > 19) {
+    return false;
+  }
+
   let sum = 0;
   let shouldDouble = false;
 

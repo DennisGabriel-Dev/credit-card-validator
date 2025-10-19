@@ -31,7 +31,8 @@ function identificarBandeira(numero: string): string {
 
 
 function getBrandColor(brand: string): string {
-  const colors: { [key: string]: string } = {
+  // Importa cores do arquivo de constantes
+  const BRAND_COLORS: { [key: string]: string } = {
     'AMEX': '#006FCF',
     'AURA': '#FE6B01',
     'BANESE': '#00A859',
@@ -50,7 +51,7 @@ function getBrandColor(brand: string): string {
     'VISA': '#1A1F71',
   };
   
-  return colors[brand] || '#011110'; // retorna sua cor padrão se não encontrar
+  return BRAND_COLORS[brand] || '#011110';
 };
 
 export { getBrandColor, identificarBandeira };

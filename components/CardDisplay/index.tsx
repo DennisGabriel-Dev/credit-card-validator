@@ -1,9 +1,20 @@
 import { getBrandColor } from "@/app/utils/regexBandeira";
-import { Image, Text, View } from "react-native";
+import { Image, ImageSourcePropType, Text, View } from "react-native";
 import styles from "./styles";
 
+// Tipos
+type BrandLogos = {
+  [key: string]: ImageSourcePropType;
+};
+
+interface CardDisplayProps {
+  brand: string;
+  cardNumber: string;
+  valid: boolean;
+}
+
 // Mapeamento dos logos das bandeiras
-const brandLogos: { [key: string]: any } = {
+const brandLogos: BrandLogos = {
   VISA: require('@/assets/images/brands/visa.png'),
   MASTERCARD: require('@/assets/images/brands/mastercard.png'),
   AMEX: require('@/assets/images/brands/amex.png'),
@@ -22,23 +33,25 @@ const brandLogos: { [key: string]: any } = {
   VALECARD: require('@/assets/images/brands/valecard.png'),
 };
 
-export default function CardDisplay({ brand, cardNumber, valid }: { brand: string, cardNumber: string, valid: boolean }) {
-  const getBrandLogo = (brandName: string) => {
+export default function CardDisplay({ brand, cardNumber, valid }: CardDisplayProps) {
+  const getBrandLogo = (brandName: string): ImageSourcePropType | null => {
     try {
-      return brandLogos[brandName];
+      return brandLogos[brandName] || null;
     } catch {
       return null;
     }
   };
+
+  const logoSource = getBrandLogo(brand);
 
   return (
     <View style={[styles.cardContainer, {backgroundColor: getBrandColor(brand)}]}>
       <Text style={styles.textCard}>{cardNumber}</Text>
       {valid && (
         <View style={styles.brandLogoContainer}>
-          {getBrandLogo(brand) ? (
+          {logoSource ? (
             <Image 
-              source={getBrandLogo(brand)} 
+              source={logoSource} 
               style={styles.brandLogo}
               resizeMode="contain"
             />

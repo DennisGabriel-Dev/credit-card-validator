@@ -1,9 +1,11 @@
+import { CARD_CONFIG } from '@/constants/cardConfig';
+import { COLORS } from '@/constants/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0F172A',
+    backgroundColor: COLORS.background,
   },
   scrollContent: {
     flexGrow: 1,
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   titleContainer: {
-    color: '#10B981',
+    color: COLORS.primary,
     fontSize: 28,
     fontWeight: '700',
     marginTop: 40,
@@ -21,27 +23,27 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   textInput: {
-    height: 56,
-    borderColor: '#10B981',
-    borderWidth: 2,
-    borderRadius: 12,
+    height: CARD_CONFIG.inputHeight,
+    borderColor: COLORS.primary,
+    borderWidth: CARD_CONFIG.inputBorderWidth,
+    borderRadius: CARD_CONFIG.inputBorderRadius,
     marginTop: 20,
     paddingHorizontal: 16,
-    backgroundColor: '#1E293B',
-    color: '#F1F5F9',
+    backgroundColor: COLORS.inputBackground,
+    color: COLORS.textPrimary,
     fontSize: 16,
   },
   textValid: {
     marginTop: 20,
     fontSize: 18,
     fontWeight: '600',
-    color: '#10B981',
+    color: COLORS.primary,
   },
   textInvalid: {
     marginTop: 20,
     fontSize: 18,
     fontWeight: '600',
-    color: '#EF4444',
+    color: COLORS.error,
   },
 });
 
