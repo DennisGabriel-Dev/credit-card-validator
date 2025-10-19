@@ -29,4 +29,29 @@ function identificarBandeira(numero: string): string {
   return 'Bandeira não identificada';
 }
 
-export { identificarBandeira };
+
+function getBrandColor(brand: string): string {
+  const colors: { [key: string]: string } = {
+    'AMEX': '#006FCF',
+    'AURA': '#FE6B01',
+    'BANESE': '#0066CC',
+    'CABAL': '#6C1D7D',
+    'DINERS': '#0079BE',
+    'DISCOVER': '#FF6000',
+    'ELO': '#FFCB05',
+    'FORTBRASIL': '#E31E24',
+    'GRANDCARD': '#002B5C',
+    'HIPERCARD': '#D9182E',
+    'JCB': '#0E4C96',
+    'MASTERCARD': '#EB001B',
+    'PERSONALCARD': '#00A859',
+    'SOROCRED': '#E31E24',
+    'VALECARD': '#00A859',
+    'VISA': '#1A1F71',
+  };
+  
+  return colors[brand] || '#011110'; // retorna sua cor padrão se não encontrar
+};
+
+export { getBrandColor, identificarBandeira };
+

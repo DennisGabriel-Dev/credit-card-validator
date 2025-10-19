@@ -1,51 +1,80 @@
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+# Validador de Cartão de Crédito
+## Rodar projeto
+### Passo 1
+```
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Passo 2
+```
+npm run start
+```
+ou <br>
+Para rodar direto na web:
+```
+npm run web
+```
 
-## Learn more
+### Cartões para testes:
+*Visa*:
+4111111111111111
+4532015112830366
+4556737586899855
 
-To learn more about developing your project with Expo, look at the following resources:
+*Mastercard*:
+5500000000000004
+5555555555554444
+5425233430109903
+2221000000000009
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+*American Express (Amex)*:
+378282246310005
+371449635398431
+378734493671000
 
-## Join the community
+*Elo*:
+6362970000457013
+6362970000440134
 
-Join our community of developers creating universal apps.
+*Diners Club*:
+36227206271667
+36700102000000
+36148900647913
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# credit-card-validator
+*JCB*:
+3530111333300000
+3566002020360505
+3528000700000000
+
+*Hipercard*:
+6062825624254001
+6062826786276634
+
+*Discover*:
+6011111111111117
+6011000990139424
+6011981111111113
+
+*Aura*:
+5078601870000127985
+
+*Banese*:
+6361177000000000007
+
+*Cabal*:
+6043000000000000004
+
+*Fortbrasil*:
+628167123456789012
+
+*Grandcard*:
+6050321234567890120
+
+*Personalcard*:
+6360851234567890121
+
+*Sorocred*:
+6278920000000000003
+
+*Valecard*:
+6064440000000000008

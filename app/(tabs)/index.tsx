@@ -1,6 +1,7 @@
+import CardDisplay from '@/components/CardDisplay';
 import { useEffect, useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
-import { validateCardNumber } from '../utils/lunhCalc';
+import { KeyboardAvoidingView, ScrollView, StatusBar, Text, TextInput, View } from 'react-native';
+import { validateCardNumber } from '../utils/luhnCalc';
 import { identificarBandeira } from '../utils/regexBandeira';
 import styles from './styles';
 
@@ -15,27 +16,32 @@ export default function HomeScreen() {
   }, [cardNumber]);
 
   return (
-    <View>
-      <Text style={styles.titleContainer}>
-        Validador de Cartão de Crédito
-      </Text>
+    <KeyboardAvoidingView 
+      style={styles.container}
+    >
+      <StatusBar barStyle="light-content" backgroundColor="#0F172A" />
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <View style={styles.content}>
+          <Text style={styles.titleContainer}>
+            Validador de Cartão de Crédito
+          </Text>
 
-      <TextInput
-       placeholder='Digite o Número do carão aqui'
-       value={cardNumber}
-       onChange={(e) => setCardNumber(e.target.value)}
-       style={styles.textInput}
-       />
+          <TextInput
+           placeholder='Digite o Número do cartão aqui'
+           placeholderTextColor='#6B728f'
+           value={cardNumber}
+           onChangeText={(text) => setCardNumber(text)}
+           keyboardType='numeric'
+           style={styles.textInput}
+           />
 
-      <Text style={styles.textValid}>
-        {valid ? 'Número de cartão válido' : 'Número de cartão inválido'}
-      </Text>
+          <Text style={valid ? styles.textValid : styles.textInvalid}>
+            {valid ? 'Número de cartão válido' : 'Número de cartão inválido'}
+          </Text>
 
-      {valid && (
-        <Text style={styles.textBrand}>
-          Bandeira do cartão: {brand}
-        </Text>
-      )}
-    </View>
+          <CardDisplay brand={brand} cardNumber={cardNumber} valid={valid} />
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
