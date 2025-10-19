@@ -1,6 +1,7 @@
 import CardDisplay from '@/components/CardDisplay';
 import { useEffect, useState } from 'react';
-import { KeyboardAvoidingView, ScrollView, StatusBar, Text, TextInput, View } from 'react-native';
+import { KeyboardAvoidingView, ScrollView, StatusBar, Text, View } from 'react-native';
+import { MaskedTextInput } from 'react-native-mask-text';
 import { validateCardNumber } from '../utils/luhnCalc';
 import { identificarBandeira } from '../utils/regexBandeira';
 import styles from './styles';
@@ -26,7 +27,8 @@ export default function HomeScreen() {
             Validador de Cartão de Crédito
           </Text>
 
-          <TextInput
+          <MaskedTextInput
+           mask="9999 9999 9999 9999 999"
            placeholder='Digite o Número do cartão aqui'
            placeholderTextColor='#6B728f'
            value={cardNumber}
