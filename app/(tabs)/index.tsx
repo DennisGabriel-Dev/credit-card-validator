@@ -1,7 +1,7 @@
 import CardDisplay from '@/components/CardDisplay';
 import { CARD_CONFIG } from '@/constants/cardConfig';
 import { COLORS } from '@/constants/colors';
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { KeyboardAvoidingView, ScrollView, StatusBar, Text, View } from 'react-native';
 import { MaskedTextInput } from 'react-native-mask-text';
 import { validateCardNumber } from '../utils/luhnCalc';
@@ -13,10 +13,11 @@ export default function HomeScreen() {
   const [brand, setBrand] = useState('');
   const [valid, setValid] = useState(false);
 
-  useEffect(() => {
-    setValid(validateCardNumber(cardNumber));
-    setBrand(identificarBandeira(cardNumber));
-  }, [cardNumber]);
+  const handleCardNumberChange = useCallback((text: string) => {
+    setCardNumber(text);
+    setValid(validateCardNumber(text));
+    setBrand(identificarBandeira(text));
+  }, []);
 
   return (
     <KeyboardAvoidingView 
@@ -34,7 +35,7 @@ export default function HomeScreen() {
            placeholder='Digite o Número do cartão aqui'
            placeholderTextColor={COLORS.textSecondary}
            value={cardNumber}
-           onChangeText={(text) => setCardNumber(text)}
+           onChangeText={handleCardNumberChange}
            keyboardType='numeric'
            style={styles.textInput}
            accessible={true}
